@@ -48,3 +48,11 @@ mydoc = mycol.find(myquery)
 for x in mydoc:
     print(x)
 # Same as above just using regex or regular expression
+mydoc = mycol.find().sort("name")
+for x in mydoc:
+    print(x)
+# sorting the results
+mydoc = mycol.find().sort("name", -1)
+for x in mydoc:
+    print(x)
+# sorting the results in descending order
