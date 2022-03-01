@@ -56,3 +56,13 @@ mydoc = mycol.find().sort("name", -1)
 for x in mydoc:
     print(x)
 # sorting the results in descending order
+myquery = {"address": "Mountain 21"}
+mycol.delete_one(myquery)
+myquery = {"address": {"$regex": "^S"}}
+# deletes one
+x = mycol.delete_many(myquery)
+print(x.deleted_count, "documents deleted.")
+# deletes multiple
+x = mycol.delete_many({})
+print(x.deleted_count, "documents deleted.")
+# deletes all
