@@ -24,3 +24,12 @@ mylist = [
 x = mycol.insert_many(mylist)
 print(x.inserted_ids)
 # also works even if we didn't assign ids ourselves
+x = mycol.find_one()
+# finds the first occurence
+print(x)
+for x in mycol.find():
+    print(x)
+# finds all occurences
+for x in mycol.find({}, {"_id": 0, "name": 1, "address": 1}):
+    print(x)
+# returns only some fields, 0 means to exclude
