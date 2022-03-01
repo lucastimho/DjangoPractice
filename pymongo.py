@@ -33,3 +33,18 @@ for x in mycol.find():
 for x in mycol.find({}, {"_id": 0, "name": 1, "address": 1}):
     print(x)
 # returns only some fields, 0 means to exclude
+myquery = {"address": "Park Lane 38"}
+mydoc = {mycol.find(myquery)}
+for x in mydoc:
+    print(x)
+# filters the result
+myquery = {"address": {"$gt": "S"}}
+mydoc = mycol.find(myquery)
+for x in mydoc:
+    print(x)
+# advance query search where it returns any occurence in address greater than S
+myquery = {"address": {"regex": "^S"}}
+mydoc = mycol.find(myquery)
+for x in mydoc:
+    print(x)
+# Same as above just using regex or regular expression
