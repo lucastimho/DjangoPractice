@@ -67,6 +67,10 @@ newvalues = {"$set": {"name": "Minnie"}}
 x = mycol.update_many(myquery, newvalues)
 print(x.modified_count, "documents updated.")
 # updates all documents where the address starts with the letter "S"
+myresult = mycol.find().limit(5)
+for x in myresult:
+    print(x)
+# limits the occurences to 5
 myquery = {"address": "Mountain 21"}
 mycol.delete_one(myquery)
 myquery = {"address": {"$regex": "^S"}}
