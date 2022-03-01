@@ -66,3 +66,5 @@ print(x.deleted_count, "documents deleted.")
 x = mycol.delete_many({})
 print(x.deleted_count, "documents deleted.")
 # deletes all
+mycol.drop()
+# deletes whole database table and returns true if successful
